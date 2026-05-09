@@ -14,6 +14,10 @@ const API = `${BACKEND_URL}/api`;
 const FREE_LIMIT = 3;
 const STORAGE_KEY = "buildsignal_usage_count";
 
+// Note: Only a non-sensitive freemium counter (0–3) is stored here.
+// No API keys, tokens, or business data are ever written to localStorage.
+// For production, replace with server-side usage tracking per authenticated user.
+
 function getUsageCount() {
   return parseInt(localStorage.getItem(STORAGE_KEY) || "0", 10);
 }

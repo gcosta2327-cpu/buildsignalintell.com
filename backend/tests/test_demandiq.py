@@ -14,7 +14,7 @@ class TestHealth:
         assert response.status_code == 200
         data = response.json()
         assert "message" in data
-        assert "DemandIQ" in data["message"]
+        assert "BuildSignal" in data["message"]
         print("✓ Root endpoint working")
 
 
@@ -33,7 +33,7 @@ class TestAnalyze:
         assert response.status_code == 200, f"Expected 200, got {response.status_code}: {response.text}"
 
         data = response.json()
-        assert data.get("success") is True
+        assert data.get("success") == True
         result = data.get("data")
         assert result is not None
 

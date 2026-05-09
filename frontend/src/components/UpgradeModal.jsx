@@ -48,7 +48,7 @@ export default function UpgradeModal({ open, onClose, usageCount, freeLimit }) {
             <div className="flex gap-1">
               {Array.from({ length: freeLimit }).map((_, i) => (
                 <div
-                  key={i}
+                  key={`usage-dot-${i}`}
                   className="w-3 h-3 rounded-full"
                   style={{ background: i < usageCount ? "#ef4444" : "#27272a" }}
                 />

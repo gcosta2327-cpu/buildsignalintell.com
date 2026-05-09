@@ -44,6 +44,30 @@ class AnalysisRequest(BaseModel):
     sales_channels: str
 
 
+def build_user_prompt(request: AnalysisRequest) -> str:
+    return (
+        f"Business Description:\n"
+        f"Niche: {request.niche}\n"
+        f"Products: {request.products}\n"
+        f"Target Audience: {request.target_audience}\n"
+        f"Price Range: {request.price_range}\n"
+        f"Sales Channels: {request.sales_channels}"
+    )
+
+
+def parse_llm_response(raw: str) -> dict:
+    cleaned = raw.strip()
+    cleaned = re.sub(r'^```(?:json)?\s*', '', cleaned)
+    cleaned = re.sub(r'\s*```$', '', cleaned)
+    try:
+        return json.loads(cleaned)
+    except json.JSONDecodeError:
+        match = re.search(r'\{.*\}', cleaned, re.DOTALL)
+        if match:
+            return json.loads(match.group())
+        raise ValueError("Could not parse JSON from AI response")
+
+
 class AnalysisRecord(BaseModel):
     id: str
     niche: str
@@ -69,41 +93,19 @@ async def analyze_business(request: AnalysisRequest):
             system_message=SYSTEM_PROMPT
         ).with_model("anthropic", "claude-4-sonnet-20250514")
 
-        user_text = (
-            f"Business Description:\n"
-            f"Niche: {request.niche}\n"
-            f"Products: {request.products}\n"
-            f"Target Audience: {request.target_audience}\n"
-            f"Price Range: {request.price_range}\n"
-            f"Sales Channels: {request.sales_channels}"
-        )
-
-        user_message = UserMessage(text=user_text)
-        response = await chat.send_message(user_message)
-
-        # Strip markdown fences if present
-        cleaned = response.strip()
-        cleaned = re.sub(r'^```(?:json)?\s*', '', cleaned)
-        cleaned = re.sub(r'\s*```$', '', cleaned)
+        raw_response = await chat.send_message(UserMessage(text=build_user_prompt(request)))
 
         try:
-            result = json.loads(cleaned)
-        except json.JSONDecodeError:
-            # Try to extract JSON object
-            match = re.search(r'\{.*\}', cleaned, re.DOTALL)
-            if match:
-                result = json.loads(match.group())
-            else:
-                raise HTTPException(status_code=500, detail="Failed to parse AI response as JSON")
+            result = parse_llm_response(raw_response)
+        except (ValueError, json.JSONDecodeError) as e:
+            raise HTTPException(status_code=500, detail=f"Failed to parse AI response: {e}")
 
-        # Store in DB
-        record = {
+        await db.analyses.insert_one({
             "id": str(uuid.uuid4()),
             "niche": request.niche,
             "created_at": datetime.now(timezone.utc).isoformat(),
-            "result": result
-        }
-        await db.analyses.insert_one(record)
+            "result": result,
+        })
 
         return {"success": True, "data": result}
 

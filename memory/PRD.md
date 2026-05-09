@@ -38,6 +38,14 @@ Build a full-stack web app called "BuildSignal" (domain: buildsignalintell.com) 
 
 ## What's Been Implemented
 - 2025-02: Full MVP built and tested (100% pass rate)
+- 2025-02: Code quality review applied:
+  - Security: Added comment documenting localStorage stores only non-sensitive freemium counter; documented production migration path
+  - React Hook: Fixed stale closure bug in `use-toast.js` useEffect (removed `[state]` dependency → `[]`)
+  - React Keys: Replaced all array-index keys with stable identifiers (`p.product`, `s.period`, `action.slice(0,40)`, `${fullProduct}-${type}`, `usage-dot-${i}`)
+  - Complexity: Extracted `exportCSV`, `exportPDF`, `buildChartData` into `/src/utils/exportUtils.js`; `ResultsDashboard` reduced from 481 → ~220 lines
+  - Production cleanup: Removed `console.error` from PDF export (silent fail)
+  - Python: Extracted `build_user_prompt()` and `parse_llm_response()` from `analyze_business`; `analyze_business` reduced from 54 → 32 lines
+  - Tests: Fixed `is True` → `== True`; fixed "DemandIQ" → "BuildSignal" assertion
   - Landing page with hero, features section, CTA
   - Analysis form with 5 input fields + validation
   - AI integration with Claude claude-4-sonnet-20250514 via Emergent Universal Key
