@@ -111,7 +111,7 @@ export default function ResultsDashboard({ data, formData, onNewAnalysis }) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "demandiq-analysis.csv";
+    a.download = "buildsignal-analysis.csv";
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -126,7 +126,7 @@ export default function ResultsDashboard({ data, formData, onNewAnalysis }) {
     // Title
     pdf.setFontSize(24);
     pdf.setTextColor(30, 215, 96);
-    pdf.text("DemandIQ Analysis Report", margin, y);
+    pdf.text("BuildSignal Analysis Report", margin, y);
     y += 10;
 
     // Business info
@@ -245,7 +245,7 @@ export default function ResultsDashboard({ data, formData, onNewAnalysis }) {
       y += lines.length * 5 + 4;
     });
 
-    pdf.save("demandiq-report.pdf");
+    pdf.save("buildsignal-report.pdf");
   };
 
   return (

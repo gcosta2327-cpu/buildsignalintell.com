@@ -12,7 +12,7 @@ import axios from "axios";
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 const FREE_LIMIT = 3;
-const STORAGE_KEY = "demandiq_usage_count";
+const STORAGE_KEY = "buildsignal_usage_count";
 
 function getUsageCount() {
   return parseInt(localStorage.getItem(STORAGE_KEY) || "0", 10);
@@ -95,7 +95,7 @@ export default function AnalyzePage({ darkMode, setDarkMode }) {
             className="text-xl font-bold tracking-tight"
             style={{ fontFamily: "Outfit, sans-serif" }}
           >
-            Demand<span style={{ color: "#1ed760" }}>IQ</span>
+            Build<span style={{ color: "#1ed760" }}>Signal</span>
           </span>
         </div>
         <div className="flex items-center gap-3">

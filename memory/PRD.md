@@ -1,7 +1,7 @@
-# DemandIQ — PRD & Memory
+# BuildSignal — PRD & Memory
 
 ## Problem Statement
-Build a full-stack web app called "DemandIQ" that helps e-commerce store owners identify high and low demand products using AI (Claude claude-4-sonnet-20250514).
+Build a full-stack web app called "BuildSignal" (domain: buildsignalintell.com) that helps e-commerce store owners identify high and low demand products using AI (Claude claude-4-sonnet-20250514).
 
 ## Architecture
 

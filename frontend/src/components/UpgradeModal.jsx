@@ -60,7 +60,7 @@ export default function UpgradeModal({ open, onClose, usageCount, freeLimit }) {
           </div>
 
           <p className="text-[#a1a1aa] text-sm mb-6 leading-relaxed">
-            You've reached your free tier limit. Upgrade to Pro for unlimited access to DemandIQ's full AI analysis suite.
+            You've reached your free tier limit. Upgrade to Pro for unlimited access to BuildSignal's full AI analysis suite.
           </p>
 
           {/* Features list */}

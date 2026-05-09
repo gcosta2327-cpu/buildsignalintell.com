@@ -53,7 +53,7 @@ class AnalysisRecord(BaseModel):
 
 @api_router.get("/")
 async def root():
-    return {"message": "DemandIQ API running"}
+    return {"message": "BuildSignal API running"}
 
 
 @api_router.post("/analyze")

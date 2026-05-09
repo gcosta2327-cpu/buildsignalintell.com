@@ -46,7 +46,7 @@ export default function LandingPage({ darkMode, setDarkMode }) {
           style={{ fontFamily: "Outfit, sans-serif" }}
           data-testid="nav-logo"
         >
-          Demand<span style={{ color: "#1ed760" }}>IQ</span>
+          Build<span style={{ color: "#1ed760" }}>Signal</span>
         </span>
         <div className="flex items-center gap-3">
           <button
@@ -166,7 +166,7 @@ export default function LandingPage({ darkMode, setDarkMode }) {
             Ready to outsmart your market?
           </h2>
           <p className="text-[#a1a1aa] mb-8 text-base">
-            Join thousands of store owners using DemandIQ to stay ahead.
+            Join thousands of store owners using BuildSignal to stay ahead.
           </p>
           <Button
             data-testid="bottom-cta-btn"
@@ -181,7 +181,7 @@ export default function LandingPage({ darkMode, setDarkMode }) {
       {/* Footer */}
       <footer className="relative z-10 border-t border-[#27272a] px-6 md:px-12 py-6 text-center">
         <p className="text-sm text-[#52525b]">
-          © 2025 DemandIQ — AI-powered demand intelligence for e-commerce
+          © 2025 BuildSignal — AI-powered market intelligence for e-commerce
         </p>
       </footer>
     </div>
