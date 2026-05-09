@@ -1,0 +1,114 @@
+{
+  "theme": "dark",
+  "archetype": "Archetype 4 (Swiss & High-Contrast) - Dark Mode Variant",
+  "brand_name": "DemandIQ",
+  "domain": "SaaS / E-commerce Analytics",
+  "primary_colors": {
+    "background": "#09090b",
+    "surface": "#18181b",
+    "surface_hover": "#27272a",
+    "accent": "#1ed760",
+    "accent_hover": "#17a34a",
+    "accent_foreground": "#000000",
+    "text_primary": "#f8f9fa",
+    "text_secondary": "#a1a1aa",
+    "border": "#27272a",
+    "high_demand": "#1ed760",
+    "low_demand": "#ef4444"
+  },
+  "typography": {
+    "headings": {
+      "font_family": "Outfit",
+      "weights": ["400", "600", "700"],
+      "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tighter font-bold text-white",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl tracking-tight font-semibold text-white",
+      "h3": "text-xl sm:text-2xl tracking-tight font-medium text-white",
+      "h4": "text-lg sm:text-xl font-medium text-white",
+      "hero_headline": "text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tighter text-white"
+    },
+    "body": {
+      "font_family": "IBM Plex Sans",
+      "weights": ["400", "500", "600"],
+      "base": "text-base leading-relaxed text-[#a1a1aa]",
+      "small": "text-sm text-[#a1a1aa]",
+      "label": "text-xs uppercase tracking-[0.2em] font-medium text-[#1ed760]"
+    }
+  },
+  "spacing_and_layout": {
+    "container_padding": "p-8 md:p-12",
+    "gap_large": "gap-12",
+    "gap_medium": "gap-8",
+    "gap_small": "gap-4",
+    "dashboard_grid": "grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6",
+    "card_padding": "p-6",
+    "border_radius": "rounded-lg"
+  },
+  "surface_styles": {
+    "dashboard_card": "bg-[#18181b] border border-[#27272a] rounded-lg p-6 shadow-sm",
+    "glass_header": "backdrop-blur-xl bg-[#09090b]/80 border-b border-[#27272a] sticky top-0 z-50",
+    "action_card": "bg-[#18181b] border border-[#27272a] hover:border-[#1ed760]/50 transition-colors duration-300 rounded-lg p-6 group cursor-pointer"
+  },
+  "components": {
+    "button_primary": "bg-[#1ed760] text-black hover:bg-[#17a34a] font-semibold py-2 px-6 rounded-md transition-all duration-200 shadow-[0_0_15px_rgba(30,215,96,0.3)] hover:shadow-[0_0_25px_rgba(30,215,96,0.5)]",
+    "button_secondary": "bg-[#27272a] text-white hover:bg-[#3f3f46] font-medium py-2 px-6 rounded-md border border-[#3f3f46] transition-colors duration-200",
+    "input": "bg-[#09090b] border border-[#27272a] text-white focus:border-[#1ed760] focus:ring-1 focus:ring-[#1ed760] rounded-md px-4 py-2 w-full transition-all",
+    "badge_high_demand": "bg-[#1ed760]/10 text-[#1ed760] border border-[#1ed760]/20 px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider",
+    "badge_low_demand": "bg-[#ef4444]/10 text-[#ef4444] border border-[#ef4444]/20 px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider"
+  },
+  "animations": {
+    "hover_lift": "hover:-translate-y-1 transition-transform duration-300",
+    "pulse_glow": "animate-pulse shadow-[0_0_20px_rgba(30,215,96,0.2)]",
+    "fade_in_stagger": "transition-opacity duration-500 delay-[var(--delay)]"
+  },
+  "pages": [
+    {
+      "name": "Landing Page",
+      "layout": "Hero Section -> Features -> CTA",
+      "hero_instructions": "Large h1, glowing primary CTA button, hero image showing entrepreneur laptop on right side, ambient dark background with subtle grid overlay.",
+      "media_mapping": {
+        "hero_background": "CSS generated radial gradient with #1ed760 glow and #09090b background",
+        "hero_image": "https://images.unsplash.com/photo-1586880244406-556ebe35f282?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzV8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjBlbnRyZXByZW5ldXIlMjBsYXB0b3B8ZW58MHx8fHwxNzc4MzE3MzA2fDA&ixlib=rb-4.1.0&q=85"
+      }
+    },
+    {
+      "name": "Analysis Form Page",
+      "layout": "Centered form container max-w-2xl",
+      "instructions": "Clean, distraction-free inputs. Inputs must have #27272a borders, text white. 'Analyze' button pulses slightly. Label color #a1a1aa."
+    },
+    {
+      "name": "Results Dashboard",
+      "layout": "Control Room Grid",
+      "instructions": "Top row: Summary cards (col-span-1 or 2). Next: Recharts Bar Chart (col-span-full). Bottom: 2 columns (High Demand / Low Demand). Right or Bottom: 3 Action Cards.",
+      "chart_styling": "Recharts: Use #1ed760 for high demand bars, #ef4444 for low demand. Grid lines must be #27272a (very subtle). Tooltips must have bg-[#18181b] and border-[#27272a]."
+    },
+    {
+      "name": "Upgrade Modal",
+      "layout": "Centered modal, glassmorphism overlay",
+      "instructions": "Use Shadcn Dialog. Backdrop blur xl. Highlight 3/3 free analyses used in red. Primary action 'Upgrade to Pro' in #1ed760."
+    }
+  ],
+  "accessibility": {
+    "focus_ring": "focus:outline-none focus:ring-2 focus:ring-[#1ed760] focus:ring-offset-2 focus:ring-offset-[#09090b]",
+    "contrast_check": "Ensure text-secondary (#a1a1aa) against surface (#18181b) meets 4.5:1 WCAG.",
+    "testing": "All interactive elements must include data-testid (e.g., data-testid='analyze-submit-btn')"
+  },
+  "media_urls": {
+    "hero_context_image": {
+      "url": "https://images.unsplash.com/photo-1586880244406-556ebe35f282?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzV8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjBlbnRyZXByZW5ldXIlMjBsYXB0b3B8ZW58MHx8fHwxNzc4MzE3MzA2fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Person using Macbook Pro on white table, representing an e-commerce store owner",
+      "placement": "Landing page hero section right side"
+    },
+    "warehouse_abstract": {
+      "url": "https://images.unsplash.com/photo-1579105877218-5cd1f68618d9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjByZXRhaWwlMjB3YXJlaG91c2UlMjBib3hlc3xlbnwwfHx8fDE3NzgzMTczMDZ8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Stacked boxes, representing e-commerce inventory and demand",
+      "placement": "Feature section background or side image"
+    }
+  },
+  "technical_notes": {
+    "css_framework": "Tailwind CSS",
+    "components_library": "Shadcn UI",
+    "charting_library": "Recharts",
+    "pdf_export": "jsPDF",
+    "state_persistence": "localStorage for freemium limits (analyses_count: number)"
+  }
+}
