@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "@/components/LandingPage";
 import AnalyzePage from "@/components/AnalyzePage";
+import ReviewAnalyzerPage from "@/components/ReviewAnalyzerPage";
 import "@/App.css";
 import "@/index.css";
 
@@ -20,6 +21,10 @@ function App() {
             <Route
               path="/analyze"
               element={<AnalyzePage darkMode={darkMode} setDarkMode={setDarkMode} />}
+            />
+            <Route
+              path="/review-analyzer"
+              element={<ReviewAnalyzerPage />}
             />
           </Routes>
         </BrowserRouter>
